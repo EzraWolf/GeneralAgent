@@ -1,0 +1,19 @@
+
+
+company_structure:
+  c-suite:
+		CEO: # Chief Executive Officer
+			purpose: "Lead the company vision, initiate change and direction, and guide projects"
+			goals: []
+
+		CIO: # Chief Informations Officer
+			goals: []
+
+		etc:
+			- A
+			- B
+			- C
+
+	departments:
+		AIR: # AI-Resource (Like HR but for AI)
+			purpose

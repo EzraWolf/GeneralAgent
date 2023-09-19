@@ -1,0 +1,82 @@
+
+project:
+  name: Marketer
+  allowed_callbacks:
+    - callback_1
+    - callback_2
+    - callback_3
+  light_ai: GPT-3.5-TURBO
+  smart_ai: GPT-4
+  database: ../agent.db
+  workspace: ./{name}
+
+  # Phases are based on the 6-Sigma framework
+  # which only has 5 phases for some reason..
+  #
+  # - Each role and department will always be
+  #   in the same phase at the same time
+  #
+  # - Phases change when the C-Suite agrees
+  #   that they should continue / revert back
+  #   to a previous phase to re-evaluate work
+  phases:
+    - Define
+    - Measure
+    - Analyze
+    - Improve
+    - Control
+
+structure:
+  CEO:
+    - CEO
+    - CIO
+    - CFO
+    - etc
+
+  departments:
+    - IS
+      - IT
+    - AIR
+    - TAM
+
+roles:
+  CEO:
+    purpose: Lead the company vision and direction
+    role_type: 
+    interactions:
+      - CFO
+      - CPO
+      - CCO
+    prompts:
+      - strategy_direction
+      - budget_review
+      - product_vision
+    constraints:
+      - Time-bound meetings
+    resources:
+      - Quarterly reports
+      - Annual reports
+
+#... (This structure is repeated for other roles)
+
+phase_control:
+  initiation:
+    - CEO
+    - CPO
+    - CCO
+  planning:
+    - Project Planner
+    - Researcher
+    - Product Engineer
+    - Product Designer
+  execution:
+    - Programming
+    - Graphics Designer
+    - Product Engineer
+  closing:
+    - CEO
+    - Project Analyst
+    - Project Planner
+  iteration_trigger:
+    - Negative Feedback
+    - Project Delays

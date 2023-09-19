@@ -1,0 +1,4 @@
+
+# Meant to work with the `guidance` library
+behavior:
+  - A {gen} ??

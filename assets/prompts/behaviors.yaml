@@ -1,0 +1,4 @@
+
+# Experimenting with the `guidance` library for Python
+prompts:
+ - "Testing {gen}"
