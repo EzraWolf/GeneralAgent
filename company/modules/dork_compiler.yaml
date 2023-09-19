@@ -6,7 +6,6 @@ patterns:
  - "{no site_b} {site_a} ++ //{page_type}{page_param} + {search_func_a}:{site_a}"
  - "{site_a and site_b} ++ / {kw_a and kw_b} / {page_type}?{page_param}*{search_func_a}*{site_a}"
 
-
 keywords_a:
   - ai llms
   - research
