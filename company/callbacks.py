@@ -1,23 +1,27 @@
 
-from ..general_agent.agent import callback
+from general_agent.agent import callback
+
+@callback.new(
+    "View the current project space, its structure, and what folders and files are in it",
+    dict,
+)
+def get_workspace_dirs() -> dict:
+    pass
+
 
 @callback.new(
     "Create a new file. This does not update nor read files.",
     None,
     callback.new_arg("contents", str, "The file contents"),
-    callback.new_arg("filetype", str, "The filetype", required=False),
-    callback.new_arg("location", str, "The path to save the file", enum=["za", "buh"]),
+    callback.new_arg("filetype", str, "The filetype"),
+    callback.new_arg("location", str, "The path to save the file in your workspace"),
 )
 def create_file(
     contents: str,
     filetype: str,
     location: str,
 ) -> None:
-    """
-    Creates a file
-    """
-    print("Made the file I think")
-    print(contents)
+    pass
 
 
 @callback.new(
@@ -95,10 +99,28 @@ def search_database(db_query: str, n_results: int) -> dict:
     """
     pass
 
+
 @callback.new(
     "Calculate a math problem",
     dict,
-    callback.new_arg("equation", dict, "???")
+    callback.new_arg("equation", dict, "??")
 )
 def calculate(equation: dict) -> dict:
+    pass
+
+
+@callback.new(
+    "Fetch historical stock data",
+    dict,
+    callback.new_arg("stock_ticker", str, "The abbreviated name of the stock"),
+    callback.new_arg("timeframe", str, "The duration of each candle",
+        enum=[
+            "1m", "5m", "15m",
+            "1h", "4h",
+            "1d",
+            "1w",
+        ]
+    )
+)
+def get_stock_data(stock_ticker: str, timeframe: str) -> dict:
     pass
