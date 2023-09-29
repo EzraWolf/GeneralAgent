@@ -1,0 +1,57 @@
+
+patterns:
+ - "{no site_b} {site_a} {kw_a} .{page_type}?{page_param}="
+ - "{no site_b} {site_a} -{kw_a} - / {page_type}?{page_param}= + {search_func_a}"
+ - "{no site_b} {site_a} / ({kw_a} or {kw_b}) / {page_type}/{page_param} + {search_func_a}"
+ - "{no site_b} {site_a} ++ //{page_type}{page_param} + {search_func_a}:{site_a}"
+ - "{site_a and site_b} ++ / {kw_a and kw_b} / {page_type}?{page_param}*{search_func_a}*{site_a}"
+
+sites_a:
+  - .edu
+  - arxiv.org
+  - researchgate.com
+  - github.com
+
+exclude_sites:
+  - .gov
+  - google.com
+  - youtube.com
+
+universal_funcs:
+  - inurl    # Single word
+  - intext
+  - intitle
+  - related
+  - cache
+
+search_funcs_b:
+  - filetype
+  - cache
+  - inanchor
+  - allinanchor
+
+page_types:
+  - php
+  - php3
+  - php4
+  - phpx
+  - cfm
+  - asp
+  - aspx
+
+page_params:
+  - p
+  - q
+  - id
+  - ref+id
+  - topic
+  - title
+  - item+id # Makes `item`, `item_id`, `item-id`, and `itemid`, and does the same but with "item"s prefix, so "i_id", etc
+  - page+id
+  - user+id
+  - book+id
+  - order+id
+  - search+id
+  - service+id
+  - product+id
+  - command+id

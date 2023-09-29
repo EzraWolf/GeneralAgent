@@ -1,0 +1,49 @@
+
+purpose: "Create a summarized, informative, and useful report of the topic"
+callbacks:
+  - create_file
+  - summon_agent
+  - basic_web_search
+
+# Meant to work with the `guidance` library
+prompt: |
+  {{#system~}}
+  {system_prompt}
+  {{~/system}}
+
+  {{#block hidden=True~}}
+  Create a well written and informational report for a human to read and understand.
+  This report should be written so that you do not need much prior knowledge to know what it is talking about.
+  Write the report about the information below:
+  {{info}}
+  {{~/block}}
+
+  # {gen "title" temperature=0}
+  Summary:
+  {gen "summary" temperature=0}
+
+
+  AGENT:
+  This goes on forever, slowely building up a large conversation.
+  It will quickly exceed the token max though.
+
+  {{~#geneach "convo" stop=False}}
+  {{#user~}}
+  {{set "this.convo_input_var" (await "convo_input_var")}}
+  {{~/user}}
+
+  {{#assistant~}}
+  {{gen "this.agent_response" temperature=0}}
+  {{~/assistant}}
+  {{~/geneach}}
+
+
+
+  {hide}
+  What are the most common commands used in the {{os}} operating system?
+
+  Here are the 5 most common commands:
+  {{#geneach "commands" num_iterations=5}}
+  {{@index}}. "{{gen 'this'}}"{{/geneach}}
+
+

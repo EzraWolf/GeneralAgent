@@ -1,0 +1,19 @@
+
+purpose: "Create 3-5 sentences for an executive summary"
+callbacks:
+  - create_file
+  - summon_agent
+
+# Meant to work with the `guidance` library
+prompt: |
+  {{#system~}}
+  {system_prompt}
+  {{~/system}}
+	- Create 3-4 sentences in an executive summary
+		- Cover research objectives
+		- Methodology
+		- Research findings
+		- Limitations
+		- Conclusions
+		- Recommendations
+  - Have deliverables like grpahs or charts when needed
