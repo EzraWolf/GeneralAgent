@@ -93,7 +93,6 @@ def new(
 
         # Add every function argument to the OpenAI function JSON file
         for arg in function_args:
-            print(arg)
             if arg["arg_required"]:
                 openai_json["parameters"]["required"].append(arg["arg_name"])
 
@@ -107,13 +106,11 @@ def new(
             if arg["arg_enum"] is not None:
                 openai_json["parameters"]["properties"][arg["arg_name"]]["enum"] = arg["arg_enum"]
 
-
-        print("OpenAI JSON:")
-        print(openai_json)
-
         # Run the actual function with the args the user has
         # Even if we have no regular or keyword arguments it still works fine
-        parent_func(*args, **kwargs)
+        output = parent_func(*args, **kwargs)
+
+        return output, openai_json
 
     # `new` returning the decorator
     return auxiliary

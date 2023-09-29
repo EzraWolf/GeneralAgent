@@ -2,9 +2,11 @@
 # from .assets import prompts
 from general_agent.agent import callback
 from general_agent.agent import openai_api
+from company import callbacks
 
 def main() -> None:
-    # ?
+    print("View Workspace:")
+    print(callbacks.view_workspace()[1])
 
     """
     chat = openai_api.OpenAI()
