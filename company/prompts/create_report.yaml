@@ -1,9 +1,5 @@
 
-purpose: "Create a summarized, informative, and useful report of the topic"
-callbacks:
-  - create_file
-  - summon_agent
-  - basic_web_search
+purpose: "Create a summarized report of any arbitrary information"
 
 # Meant to work with the `guidance` library
 prompt: |
