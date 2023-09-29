@@ -10,7 +10,9 @@ What's unique about this so-called "AI company" though is that each project can 
 
 ## Directory
 
-`Projects` Here is where your projects will lie. Under this folder will contain each project folder and its `.yaml` config file
+`agents` Here is where you define your AI Agents in `.yaml` config files
+
+`projects` Here is where your projects will lie. Under this folder will contain each project folder and its `.yaml` config file
 
 `prompts` Here is where your agent promprs will go. Each `.yaml` file under this will act as both a prompt and config file for how it should be used
 
