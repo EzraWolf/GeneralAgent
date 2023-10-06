@@ -1,5 +1,9 @@
 
 purpose: "Create a summarized report of any arbitrary information"
+use_smart_ai: True
+callbacks:
+  - create_file
+  - summon_agent
 
 # Meant to work with the `guidance` library
 prompt: |
@@ -11,17 +15,17 @@ prompt: |
   Create a well written and informational report for a human to read and understand.
   This report should be written so that you do not need much prior knowledge to know what it is talking about.
   Write the report about the information below:
-  {{info}}
+  {{text_info}}
   {{~/block}}
 
   # {gen "title" temperature=0}
+
   Summary:
   {gen "summary" temperature=0}
 
-
   AGENT:
   This goes on forever, slowely building up a large conversation.
-  It will quickly exceed the token max though.
+  It will quickly exceed the token max.
 
   {{~#geneach "convo" stop=False}}
   {{#user~}}
@@ -33,13 +37,9 @@ prompt: |
   {{~/assistant}}
   {{~/geneach}}
 
-
-
   {hide}
   What are the most common commands used in the {{os}} operating system?
 
   Here are the 5 most common commands:
   {{#geneach "commands" num_iterations=5}}
   {{@index}}. "{{gen 'this'}}"{{/geneach}}
-
-
