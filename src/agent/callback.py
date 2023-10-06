@@ -1,4 +1,20 @@
 
+"""
+Create AI Agent callbacks in a structured and uniform way
+"""
+
+class Callback():
+    """
+    Defines a single AI Agent callback
+    """
+
+    name       : str = ""
+    parameters : list[str] = []
+
+    def __init__(self) -> None:
+        pass
+
+
 
 def make_decorator(decorator):
     """
