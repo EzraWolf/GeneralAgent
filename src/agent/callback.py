@@ -45,6 +45,7 @@ def make_decorator(decorator):
         return repl
     return layer
 
+
 @make_decorator
 def new(
     parent_func,
@@ -70,6 +71,7 @@ def new(
         return "returning a value here"
     ```
     """
+
 
     # The decorator
     def auxiliary(*args, **kwargs):

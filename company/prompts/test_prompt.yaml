@@ -1,0 +1,18 @@
+
+prompt: |
+  Create an executive summary for me
+
+output: |
+  # Executive Summary
+  Topic: {gen "topic" temp=0}
+
+  {
+    if 
+  }
+
+examples:
+  prompt: |
+    a
+  output: |
+    b
+

@@ -1,5 +1,6 @@
 
-purpose: "Create 3-5 sentences for an executive summary"
+purpose: "Create 3 to 5 sentences for an executive summary"
+use_smart_ai: True
 callbacks:
   - create_file
   - summon_agent
@@ -7,13 +8,29 @@ callbacks:
 # Meant to work with the `guidance` library
 prompt: |
   {{#system~}}
-  {system_prompt}
+  {{system_prompt}}
   {{~/system}}
-  - Create 3-4 sentences in an executive summary
-    - Cover research objectives
-    - Methodology
-    - Research findings
-    - Limitations
-    - Conclusions
-    - Recommendations
-  - Have deliverables like grpahs or charts when needed
+
+  {{#user~}}
+  An executive summary is an information dense summary meant to condense information, research, or findings to the C-Suite
+  Executive summaries should cover the following:
+  - The original information, research, or finding objectives
+  - Methodologies
+  - The actual findings of the info
+  - Current and future limitations
+  - Conclusions
+  - Action recommendations
+  
+  Create 3 to 5 useful, easy to read, and engaging sentences that condences the information below:
+  {{information}}
+
+  Your response will be in markdown with the format below:
+  # Executive Summary
+  Topic: [topic]
+
+  [summary]
+  {{~/user}}
+
+  {{#assistant~}}
+  {{gen 'summary' temperature=0}}
+  {{~/assistant}}

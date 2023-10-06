@@ -1,13 +1,9 @@
 
 project:
   name: Marketer
-  allowed_callbacks:
-    - callback_1
-    - callback_2
-    - callback_3
   light_ai: GPT-3.5-TURBO
   smart_ai: GPT-4
-  database: ../agent.db
+  database: ../agi.db
   workspace: ./{name}
 
   # Phases are based on the 6-Sigma framework
@@ -20,11 +16,11 @@ project:
   #   that they should continue / revert back
   #   to a previous phase to re-evaluate work
   phases:
-    - Define
-    - Measure
-    - Analyze
-    - Improve
-    - Control
+    - Define - Define the problem, the desired outcome, and project goals
+    - Measure - Gather data & info on the current situation to make better decisions
+    - Analyze - Use metrics and tools to examine the data to better understand the problems
+    - Improve - Come up with solutions and improvements and implement the best one
+    - Control - Monitor the new solution to make sure it works and create future insight
 
 structure:
   CEO:
