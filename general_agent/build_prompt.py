@@ -31,13 +31,12 @@ class BuildLLMPrompt(object):
 		self.llm_usr_prompt_output_format   : str = ""
 
 
-
 	def set_llm_settings(
 			self,
 			allowed_callbacks: list[str],
-
 	) -> str:
 		pass
+
 
 	def build_system_prompt():
 		'''
@@ -54,6 +53,6 @@ class BuildLLMPrompt(object):
 		'''
 		pass
 
-	def build_user_prompt() -> str:
 
-	# Build user prompt too tired right now going to bed
+	def build_user_prompt() -> str:
+		pass
